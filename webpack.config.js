@@ -9,6 +9,20 @@ module.exports = {
         test: /\.(js|ts|tsx)$/,
         exclude: /node_modules/,
         use: ['babel-loader']
+      },
+      {
+        test: /\.css$/,
+        exclude: /node_modules/,
+        use: [
+          "style-loader",
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1,
+            }
+          },
+          "postcss-loader",
+        ]
       }
     ]
   },
