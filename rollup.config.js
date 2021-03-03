@@ -1,10 +1,20 @@
-// import resolve from '@rollup/plugin-node-resolve';
-// import commonjs from '@rollup/plugin-commonjs';
+import resolve from '@rollup/plugin-node-resolve';
+import commonjs from '@rollup/plugin-commonjs';
 import typescript from '@rollup/plugin-typescript';
 import postcss from 'rollup-plugin-postcss';
 import del from 'rollup-plugin-delete';
 
 import pkg from './package.json';
+
+const targets = {
+  main: `${pkg.distributionDirectory}/${pkg.main}`,
+  module: `${pkg.distributionDirectory}/${pkg.module}`,
+  browser: `${pkg.distributionDirectory}/${pkg.browser}`,
+};
+
+const globals = {
+  react: 'React',
+};
 
 export default [
   {
@@ -13,18 +23,22 @@ export default [
       del({
         targets: [pkg.distributionDirectory]
       }),
-      // resolve(),
-      // commonjs(),
+      resolve(),
+      commonjs(),
       typescript(),
       postcss({
         extract: true,
         modules: true,
       })
     ],
+    external: [
+      'react',
+      /node_modules/
+    ],
     output: [
-      { file: pkg.main, dir: pkg.distributionDirectory, format: 'cjs' },
-      { file: pkg.module, dir: pkg.distributionDirectory, format: 'es' },
-      { file: pkg.browser, dir: pkg.distributionDirectory, format: 'umd' },
+      { file: targets.main, format: 'cjs', globals },
+      { file: targets.module, format: 'es', globals },
+      { file: targets.browser, format: 'umd', globals, name: 'Athena' },
     ]
   }
 ];
