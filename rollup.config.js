@@ -26,7 +26,9 @@ export default [
       }),
       resolve(),
       commonjs(),
-      typescript(),
+      typescript({
+        tsconfig: './tsconfig.declarations.json'
+      }),
       postcss({
         extract: path.resolve(pkg.distributionDirectory, 'styles.css'),
         modules: true,
