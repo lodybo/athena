@@ -1,19 +1,50 @@
 import { Meta, Canvas, Story, ArgsTable } from '@storybook/addon-docs/blocks';
-import Button from "./Button";
+import { Button } from "./Button";
+
+export const ButtonTemplate = (props) => <Button {...props}>Do not click me</Button>;
 
 <Meta
   title="Button"
   component={ Button }
+  argTypes={{
+    onClick: {
+      action: 'clicked',
+    },
+    primary: {
+      name: 'Primary colors',
+      description: 'Whether the button is themed in primary colors',
+      control: {
+        type: 'boolean'
+      },
+      table: {
+        defaultValue: false,
+      }
+    }
+  }}
+  args={{
+    primary: false,
+  }}
 />
 
 # Button
-A simple button
+A simple button. Especially useful for user-initiated actions.
 
 <Canvas>
   <Story name="Simple button">
-    <Button>
-      Don't click me
-    </Button>
+    { ButtonTemplate.bind({}) }
+  </Story>
+</Canvas>
+
+If necessary, a button can also be themed in the primary colors.
+
+<Canvas>
+  <Story
+    name="Primary button"
+    args={{
+      primary: true,
+    }}
+  >
+    { ButtonTemplate.bind({}) }
   </Story>
 </Canvas>
 

@@ -27,3 +27,11 @@
     @apply text-xs;
   }
 }
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
