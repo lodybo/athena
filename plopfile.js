@@ -15,11 +15,6 @@ module.exports = function (plop) {
         templateFile: 'plop-templates/FunctionComponent.tsx.hbs',
       },
       {
-        type: 'add',
-        path: 'src/components/{{pascalCase name}}/{{pascalCase name}}.module.css',
-        templateFile: 'plop-templates/ComponentStyles.module.css.hbs',
-      },
-      {
         type: 'append',
         path: 'src/index.ts',
         template: `export { default as {{pascalCase name}} } from './components/{{pascalCase name}}/{{pascalCase name}}';`,
