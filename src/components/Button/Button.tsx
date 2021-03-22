@@ -1,13 +1,16 @@
 import React, { ReactNode, VoidFunctionComponent } from 'react';
 import classnames from 'classnames';
+import { ClassValue } from "classnames/types";
 
 export type Props = {
+  classes?: ClassValue,
   primary?: boolean;
   onClick: () => void;
   children: ReactNode,
 };
 
 export const Button: VoidFunctionComponent<Props> = ({
+  classes = '',
   primary = false,
   onClick,
   children
@@ -26,7 +29,8 @@ export const Button: VoidFunctionComponent<Props> = ({
       'border-primary-light': !primary,
       'hover:border-primary': !primary,
       'hover:bg-primary-light': !primary,
-    }
+    },
+    classes
   )}
     onClick={onClick}
   >

@@ -1,25 +1,12 @@
 import { Meta, Canvas, Story, ArgsTable } from '@storybook/addon-docs/blocks';
-import { Button } from "./Button";
-
-export const ButtonTemplate = (props) => <Button {...props}>Do not click me</Button>;
+import { Button } from './Button';
+import { ButtonTemplate, argTypes } from './Button.stories';
 
 <Meta
   title="Elements/Button"
   component={ Button }
   argTypes={{
-    onClick: {
-      action: 'clicked',
-    },
-    primary: {
-      name: 'Primary colors',
-      description: 'Whether the button is themed in primary colors',
-      control: {
-        type: 'boolean'
-      },
-      table: {
-        defaultValue: false,
-      }
-    }
+    argTypes
   }}
   args={{
     primary: false,
@@ -30,7 +17,10 @@ export const ButtonTemplate = (props) => <Button {...props}>Do not click me</But
 A simple button. Especially useful for user-initiated actions.
 
 <Canvas>
-  <Story name="Simple button">
+  <Story
+    name="Simple button"
+    argTypes={{}}
+  >
     { ButtonTemplate.bind({}) }
   </Story>
 </Canvas>
@@ -42,6 +32,19 @@ If necessary, a button can also be themed in the primary colors.
     name="Primary button"
     args={{
       primary: true,
+    }}
+  >
+    { ButtonTemplate.bind({}) }
+  </Story>
+</Canvas>
+
+But, if needed, you can pass other colors to it in the form of a [classnames](https://www.npmjs.com/package/classnames) argument.
+
+<Canvas>
+  <Story
+    name="Specifying a class"
+    args={{
+      classes: 'example-class'
     }}
   >
     { ButtonTemplate.bind({}) }

@@ -1,3 +1,7 @@
+import { library } from '@fortawesome/fontawesome-svg-core';
+import {
+  faTimesCircle
+} from '@fortawesome/free-solid-svg-icons';
 // TODO: Prevent these imports from showing up in the declaration (index.d.ts) file
 import '@fontsource/bungee';
 import '@fontsource/bungee-shade';
@@ -7,4 +11,9 @@ import '@fontsource/roboto-mono';
 
 import './styles/global.css';
 
-export { default as Button } from './components/Button/Button';
+library.add(
+  faTimesCircle,
+);
+
+export { Button } from './components/Button/Button';
+export { Alert } from './components/Alert/Alert';
