@@ -17,3 +17,4 @@ library.add(
 
 export { Button } from './components/Button/Button';
 export { Alert } from './components/Alert/Alert';
+export { Input } from './components/Input/Input';

@@ -1,0 +1,23 @@
+import { Meta, Canvas, Story, ArgsTable } from '@storybook/addon-docs/blocks';
+import { Input } from './Input';
+
+export const InputTemplate = (props) => <Input {...props} />;
+
+<Meta
+  title="Elements/Input"
+  component={ Input }
+  argTypes={{}}
+/>
+
+# Input
+
+<Canvas>
+  <Story
+    name="Simpe Input"
+    args={{}}
+  >
+    { InputTemplate.bind({}) }
+  </Story>
+</Canvas>
+
+<ArgsTable of={ Input } />

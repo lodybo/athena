@@ -1,14 +1,12 @@
 import { Meta, Canvas, Story, ArgsTable } from '@storybook/addon-docs/blocks';
-import { {{ pascalCase name }} } from './{{pascaleCase name}}';
+import { {{ pascalCase name }} } from './{{pascalCase name}}';
 
-export const {{ pascalCase name }}Template = (props) => <{{ pascaleCase name }} {...props} />;
+export const {{ pascalCase name }}Template = (props) => <{{ pascalCase name }} {...props} />;
 
 <Meta
   title="Elements/{{ pascalCase name }}"
   component={ {{ pascalCase name }} }
-  argTypes={{
-
-  }}
+  argTypes=\{{}}
 />
 
 # {{ pascalCase name }}
@@ -16,9 +14,7 @@ export const {{ pascalCase name }}Template = (props) => <{{ pascaleCase name }} 
 <Canvas>
   <Story
     name="Simpe {{ pascalCase name }}"
-    args={{
-
-    }}
+    args=\{{}}
   >
     { {{ pascalCase name }}Template.bind({}) }
   </Story>
