@@ -19,7 +19,7 @@ export type Props = {
 export const Alert: VoidFunctionComponent<Props> = ({
   state = ALERT_STATES.HIDDEN,
   message,
-                                                      onClose,
+  onClose,
 }: Props) => (
   <div className={classnames(
     {
@@ -50,16 +50,27 @@ export const Alert: VoidFunctionComponent<Props> = ({
     }
   )}>
     { message }
-    <button className="
-      border-none
-      bg-none
-      absolute
-      top-1.5
-      right-2.5
-      text-lg
-      text-secondary
-      hover:text-secondary-dark
-      "
+    <button
+      className={classnames(
+        'border-none',
+        'bg-none',
+        'absolute',
+        'top-1.5',
+        'right-2.5',
+        'text-lg',
+        'text-secondary',
+        'hover:text-secondary-dark',
+        'focus:outline-none',
+        'focus-visible:ring-2',
+        'focus-visible:ring-secondary-dark',
+        'focus-visible:ring-offset-2',
+        {
+          'focus-visible:ring-offset-primary': state === ALERT_STATES.NOTIFICATION,
+          'focus-visible:ring-offset-success-light': state === ALERT_STATES.SUCCESS,
+          'focus-visible:ring-offset-warning-light': state === ALERT_STATES.WARNING,
+          'focus-visible:ring-offset-error-light': state === ALERT_STATES.ERROR,
+        }
+      )}
       onClick={onClose}
     >
       <FontAwesomeIcon icon="times-circle" />

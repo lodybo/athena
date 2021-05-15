@@ -1,6 +1,7 @@
 import React, { ReactNode, VoidFunctionComponent } from 'react';
 import classnames from 'classnames';
 import { ClassValue } from "classnames/types";
+import {ALERT_STATES} from "../Alert/Alert";
 
 export type Props = {
   classes?: ClassValue,
@@ -21,6 +22,11 @@ export const Button: VoidFunctionComponent<Props> = ({
     'px-5',
     'py-2.5',
     'cursor-pointer',
+    'focus:outline-none',
+    'focus-visible:ring-2',
+    'focus-visible:ring-secondary-dark',
+    'focus-visible:ring-offset-2',
+    'focus-visible:ring-offset-primary',
     {
       'border-primary': primary,
       'bg-primary-light': primary,

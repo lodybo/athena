@@ -38,11 +38,13 @@ module.exports = {
         DEFAULT: '#90B6A3',
         dark: '#84AE99',
       },
+
       warning: {
         light: '#FADC89',
         DEFAULT: '#F9D677',
         dark: '#F8D062',
       },
+
       error: {
         light: '#FB9E60',
         DEFAULT: '#FA924C',
@@ -56,7 +58,17 @@ module.exports = {
       code: ['"Roboto Mono"', 'monospace'],
     },
   },
-  variants: {},
+  variants: {
+    extend: {
+      margin: ['hover'],
+      padding: ['hover'],
+      ringWidth: ['focus-visible'],
+      ringColor: ['focus-visible'],
+      ringOffsetWidth: ['focus-visible'],
+      ringOffsetColor: ['focus-visible'],
+    },
+    zIndex: false,
+  },
   plugins: [
     require('@tailwindcss/typography'),
     require('@tailwindcss/forms'),
