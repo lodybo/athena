@@ -5,40 +5,66 @@ import { ButtonTemplate, argTypes } from './Button.stories';
 <Meta
   title="Atoms/Button"
   component={ Button }
-  argTypes={{
-    argTypes
-  }}
-  args={{
-    primary: false,
-  }}
 />
 
 # Button
-A simple button. Especially useful for user-initiated actions.
+A button. Especially useful for user-initiated actions.
 
 <Canvas>
   <Story
-    name="Simple button"
-    argTypes={{}}
+    name="A button"
   >
     { ButtonTemplate.bind({}) }
   </Story>
 </Canvas>
 
-If necessary, a button can also be themed in the primary colors.
+A button doesn't need to have background and border styles.
+A simple button can be summoned.
 
 <Canvas>
   <Story
-    name="Primary button"
+    name="Simple button"
+    argTypes={{
+      argTypes: argTypes.simple
+    }}
     args={{
-      primary: true,
+      simple: true,
     }}
   >
     { ButtonTemplate.bind({}) }
   </Story>
 </Canvas>
 
-But, if needed, you can pass other colors to it in the form of a [classnames](https://www.npmjs.com/package/classnames) argument.
+Instead of a transparent background, a button can also have a solid fill.
+
+<Canvas>
+  <Story
+    name="Primary button"
+    args={{
+      solid: true,
+    }}
+  >
+    { ButtonTemplate.bind({}) }
+  </Story>
+</Canvas>
+
+It's also possible to determine which theme will be used for the button.
+
+<Canvas>
+  <Story
+    name="Theming the button"
+    argTypes={{
+      argTypes: argTypes.theme
+    }}
+    args={{
+      theme: 'tertiary',
+    }}
+  >
+    { ButtonTemplate.bind({}) }
+  </Story>
+</Canvas>
+
+If needed, you can pass other colors to it in the form of a [classnames](https://www.npmjs.com/package/classnames) argument.
 
 <Canvas>
   <Story

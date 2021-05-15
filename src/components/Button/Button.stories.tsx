@@ -7,14 +7,35 @@ export const argTypes = {
   onClick: {
     action: 'clicked',
   },
-  primary: {
-    name: 'Primary colors',
-    description: 'Whether the button is themed in primary colors',
+  solid: {
+    name: 'Solid color',
+    description: 'Whether the button\'s background is a solid color.',
     control: {
       type: 'boolean'
     },
     table: {
       defaultValue: false,
+    }
+  },
+  simple: {
+    name: 'Simple state',
+    description: 'Display the button in a simple color theme (only borders).',
+    control: {
+      type: 'boolean'
+    },
+    table: {
+      defaultValue: false,
+    }
+  },
+  theme: {
+    name: 'Button theme',
+    description: 'The theme the button is colored in',
+    control: {
+      options: [
+        'primary',
+        'secondary',
+        'tertiary',
+      ]
     }
   }
 };

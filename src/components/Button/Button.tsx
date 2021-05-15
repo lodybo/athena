@@ -1,23 +1,25 @@
 import React, { ReactNode, VoidFunctionComponent } from 'react';
 import classnames from 'classnames';
 import { ClassValue } from "classnames/types";
-import {ALERT_STATES} from "../Alert/Alert";
 
 export type Props = {
   classes?: ClassValue,
-  primary?: boolean;
+  theme?: 'primary' | 'secondary' | 'tertiary',
+  solid?: boolean;
+  simple?: boolean;
   onClick: () => void;
   children: ReactNode,
 };
 
 export const Button: VoidFunctionComponent<Props> = ({
   classes = '',
-  primary = false,
+  solid = false,
+  simple = false,
+  theme = 'primary',
   onClick,
   children
 }) => (
   <button className={classnames(
-    'border-4',
     'transition',
     'px-5',
     'py-2.5',
@@ -28,13 +30,11 @@ export const Button: VoidFunctionComponent<Props> = ({
     'focus-visible:ring-offset-2',
     'focus-visible:ring-offset-primary',
     {
-      'border-primary': primary,
-      'bg-primary-light': primary,
-      'hover:bg-primary': primary,
-      'hover:border-primary-dark': primary,
-      'border-primary-light': !primary,
-      'hover:border-primary': !primary,
-      'hover:bg-primary-light': !primary,
+      'border-4': !solid,
+      [`bg-${theme}-light`]: solid || !simple,
+      [`hover:bg-${theme}`]: true,
+      [`border-${theme}`]: !solid,
+      [`hover:border-${theme}-dark`]: !solid,
     },
     classes
   )}
