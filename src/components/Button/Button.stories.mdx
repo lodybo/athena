@@ -4,7 +4,6 @@ import { ButtonTemplate, argTypes } from './Button.stories';
 
 <Meta
   title="Atoms/Button"
-  component={ Button }
 />
 
 # Button
@@ -25,7 +24,7 @@ A simple button can be summoned.
   <Story
     name="Simple button"
     argTypes={{
-      argTypes: argTypes.simple
+      simple: argTypes.simple,
     }}
     args={{
       simple: true,
@@ -40,6 +39,9 @@ Instead of a transparent background, a button can also have a solid fill.
 <Canvas>
   <Story
     name="Primary button"
+    argTypes={{
+      solid: argTypes.solid,
+    }}
     args={{
       solid: true,
     }}
@@ -54,7 +56,7 @@ It's also possible to determine which theme will be used for the button.
   <Story
     name="Theming the button"
     argTypes={{
-      argTypes: argTypes.theme
+      theme: argTypes.theme
     }}
     args={{
       theme: 'tertiary',
@@ -71,6 +73,52 @@ If needed, you can pass other colors to it in the form of a [classnames](https:/
     name="Specifying a class"
     args={{
       classes: 'example-class'
+    }}
+  >
+    { ButtonTemplate.bind({}) }
+  </Story>
+</Canvas>
+
+## Icons
+A button also supports displaying icons, which can be especially useful if you'd like to have a bar of buttons.
+Plus, sometimes an icon can say a thousand words.
+
+Athena has Font Awesome integrated, so you can add icons to the library and reference them in components.
+
+<Canvas>
+  <Story
+    name="Displaying icons"
+    argTypes={{
+      icon: argTypes.icon,
+      simple: argTypes.simple,
+      solid: argTypes.solid,
+    }}
+    args={{
+      icon: 'check',
+      simple: false,
+      solid: false,
+    }}
+  >
+    { ButtonTemplate.bind({}) }
+  </Story>
+</Canvas>
+
+Of course its possible to determine at which side of the button the icon will be displayed:
+
+<Canvas>
+  <Story
+    name="Positioning icons"
+    argTypes={{
+      icon: argTypes.icon,
+      iconPlacement: argTypes.iconPlacement,
+      simple: argTypes.simple,
+      solid: argTypes.solid,
+    }}
+    args={{
+      icon: 'check',
+      iconPlacement: 'right',
+      simple: false,
+      solid: false,
     }}
   >
     { ButtonTemplate.bind({}) }
