@@ -1,20 +1,87 @@
 import { Meta, Canvas, Story, ArgsTable } from '@storybook/addon-docs/blocks';
 import { Input } from './Input';
-
-export const InputTemplate = (props) => <Input {...props} />;
+import { InputTemplate, argTypes } from './Input.stories';
 
 <Meta
   title="Atoms/Input"
   component={ Input }
-  argTypes={{}}
+  decorators={[
+    (Story) => (
+      <div style={{ width: '30em' }}>
+        <Story />
+      </div>
+    ),
+  ]}
 />
 
 # Input
+An `<Input/>` component is the most low-level type of input component in Athena.
+It accepts [all the attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attributes) input fields normally have.
+
+The `<Input/>` component is enhanced with a `label` attribute (which is required), and several validation attributes.
 
 <Canvas>
   <Story
-    name="Simpe Input"
-    args={{}}
+    name="Basic input"
+    argTypes={{
+      label: argTypes.label,
+    }}
+    args={{
+      label: 'This is a label for an input'
+    }}
+  >
+    { InputTemplate.bind({}) }
+  </Story>
+</Canvas>
+
+## Validation
+It's possible to show validation states. By setting a `validationState` and in some cases passing a `validationMessage`,
+you can indicate to a user that they need to take action.
+
+Setting the `validationState` to `success` means a green border appears around the input.
+To remove any visual indication of state, set it to `none`.
+
+<Canvas>
+  <Story
+    name="Input with no validation state"
+    argTypes={{
+      label: argTypes.label,
+      validationState: argTypes.validationState,
+      validationMessage: argTypes.validationMessage,
+    }}
+    args={{
+      label: 'This input has no validation state',
+      validationState: 'none',
+    }}
+  >
+    { InputTemplate.bind({}) }
+  </Story>
+  <Story
+    name="Input with successful validation state"
+    argTypes={{
+      label: argTypes.label,
+      validationState: argTypes.validationState,
+      validationMessage: argTypes.validationMessage,
+    }}
+    args={{
+      label: 'This input has a successful validation state',
+      validationState: 'success',
+    }}
+  >
+    { InputTemplate.bind({}) }
+  </Story>
+  <Story
+    name="Input with a failed validation state"
+    argTypes={{
+      label: argTypes.label,
+      validationState: argTypes.validationState,
+      validationMessage: argTypes.validationMessage,
+    }}
+    args={{
+      label: 'This input has a failed validation state',
+      validationState: 'error',
+      validationMessage: 'This input is in error',
+    }}
   >
     { InputTemplate.bind({}) }
   </Story>
