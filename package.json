@@ -1,7 +1,7 @@
 {
   "name": "@lodybo/athena",
-  "version": "0.0.1",
-  "description": "Design system for my own personal projects",
+  "version": "0.0.0",
+  "description": "My own React- and Tailwind-based design system",
   "main": "main.cjs.js",
   "module": "main.esm.js",
   "browser": "main.umd.js",
@@ -14,10 +14,26 @@
     "build:watch": "npm run build:rollup -- -w",
     "build:storybook": "build-storybook",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "generate": "plop"
+    "generate": "plop",
+    "prerelease": "npm run build",
+    "release": "np",
+    "postrelease": "git push && git push --tags",
+    "release:beta": "npm run release prerelease"
   },
-  "keywords": [],
+  "keywords": [
+    "React",
+    "Storybook",
+    "Tailwind",
+    "Design System"
+  ],
   "author": "Lody Borgers <hi@lodybo.nl>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lodybo/athena"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.13.8",
@@ -34,6 +50,7 @@
     "@types/react": "^17.0.9",
     "autoprefixer": "^10.2.5",
     "classnames": "^2.2.6",
+    "np": "^7.5.0",
     "plop": "^2.7.4",
     "postcss": "^8.2.6",
     "postcss-import": "^14.0.0",
@@ -50,14 +67,14 @@
     "@fontsource/roboto-mono": "^4.2.2",
     "@fontsource/roboto-slab": "^4.2.2",
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
+    "@fortawesome/free-brands-svg-icons": "^5.15.3",
+    "@fortawesome/free-regular-svg-icons": "^5.15.3",
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
     "@fortawesome/react-fontawesome": "^0.1.14",
     "@tailwindcss/forms": "^0.2.1",
     "@tailwindcss/typography": "^0.4.0",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "@fortawesome/free-brands-svg-icons": "^5.15.3",
-    "@fortawesome/free-regular-svg-icons": "^5.15.3"
+    "react-dom": "^17.0.1"
   },
   "peerDependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.35",

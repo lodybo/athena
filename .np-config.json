@@ -1,0 +1,7 @@
+{
+  "yarn": false,
+  "contents": "dist",
+  "tests": false,
+  "releaseDraft": true,
+  "branch": "main"
+}
