@@ -2,9 +2,9 @@
   "name": "@lodybo/athena",
   "version": "0.0.0",
   "description": "My own React- and Tailwind-based design system",
-  "main": "dist/main.cjs.js",
-  "module": "dist/main.esm.js",
-  "browser": "dist/main.umd.js",
+  "main": "main.cjs.js",
+  "module": "main.esm.js",
+  "browser": "main.umd.js",
   "files": [
     "dist",
     "tailwind.config.js"
