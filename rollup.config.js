@@ -32,6 +32,7 @@ export default [
       postcss({
         extract: path.resolve(pkg.distributionDirectory, 'styles.css'),
         modules: true,
+        minimize: true,
         config: {
           path: 'postcss.config.js',
         },
