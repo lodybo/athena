@@ -30,7 +30,7 @@ export default [
         tsconfig: './tsconfig.declarations.json'
       }),
       postcss({
-        extract: path.resolve(pkg.distributionDirectory, 'styles.css'),
+        extract: 'styles.css',
         modules: true,
         minimize: true,
         config: {
