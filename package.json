@@ -18,7 +18,7 @@
     "prerelease": "npm run build",
     "release": "np",
     "postrelease": "git push && git push --tags",
-    "release:beta": "npm run release prerelease"
+    "release:beta": "npm run release prerelease -- --tag=next"
   },
   "keywords": [
     "React",
