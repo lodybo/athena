@@ -5,7 +5,10 @@
   "main": "dist/main.cjs.js",
   "module": "dist/main.esm.js",
   "browser": "dist/main.umd.js",
-  "files": ["dist"],
+  "files": [
+    "dist",
+    "tailwind.config.js"
+  ],
   "distributionDirectory": "dist",
   "scripts": {
     "start": "clear && npm run storybook",
