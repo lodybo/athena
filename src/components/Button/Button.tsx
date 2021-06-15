@@ -6,11 +6,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export type Props = {
   classes?: ClassValue,
-  theme: 'primary' | 'secondary' | 'tertiary',
-  solid: boolean;
-  simple: boolean;
+  theme?: 'primary' | 'secondary' | 'tertiary',
+  solid?: boolean;
+  simple?: boolean;
   icon?: IconProp;
-  iconPlacement: 'right' | 'left';
+  iconPlacement?: 'right' | 'left';
   onClick: () => void;
   children: ReactNode,
 };
