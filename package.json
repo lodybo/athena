@@ -5,6 +5,7 @@
   "main": "main.cjs.js",
   "module": "main.esm.js",
   "browser": "main.umd.js",
+  "types": "index.d.ts",
   "files": [
     "dist",
     "tailwind.config.js"
