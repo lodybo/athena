@@ -1,6 +1,6 @@
 {
   "name": "@lodybo/athena",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "My own React- and Tailwind-based design system",
   "main": "dist/main.cjs.js",
   "module": "dist/main.esm.js",
