@@ -8,9 +8,9 @@ import del from 'rollup-plugin-delete';
 import pkg from './package.json';
 
 const targets = {
-  main: `${pkg.distributionDirectory}/${pkg.main}`,
-  module: `${pkg.distributionDirectory}/${pkg.module}`,
-  browser: `${pkg.distributionDirectory}/${pkg.browser}`,
+  main: pkg.main,
+  module: pkg.module,
+  browser: pkg.browser,
 };
 
 const globals = {
