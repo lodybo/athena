@@ -1,5 +1,3 @@
-import path from 'path';
-import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import typescript from '@rollup/plugin-typescript';
 import postcss from 'rollup-plugin-postcss';
@@ -24,7 +22,6 @@ export default [
       del({
         targets: [pkg.distributionDirectory]
       }),
-      resolve(),
       commonjs(),
       typescript({
         tsconfig: './tsconfig.declarations.json'
@@ -38,10 +35,7 @@ export default [
         },
       })
     ],
-    external: [
-      'react',
-      /node_modules/
-    ],
+    external: Object.keys(pkg.dependencies),
     output: [
       { file: targets.main, format: 'cjs', globals },
       { file: targets.module, format: 'es', globals },
