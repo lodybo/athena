@@ -1,0 +1,5 @@
+button {
+  border: var(--red-6) 2px solid;
+  background: var(--red-5);
+  padding: 1rem;
+}
